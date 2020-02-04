@@ -1,163 +1,438 @@
-<!doctype html>
+<!DOCTYPE html>
 <html amp>
-<head>
-  <meta charset="utf-8">
-  <title>My AMP Page</title>
-  <link rel="canonical" href="self.html" />
-  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-  <meta name="amp-script-src" content="sha384-i5vp7UDUZg4YKPMfb6wtnj1OgdIeTbAdjps7jUTjCRD5uuwwEDmun4MZBOprfITl" />
-  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
-  <style amp-custom>
-    .wrapper {
+  <head>
+    <meta charset="utf-8" />
+    <title>My AMP Page</title>
+    <link rel="canonical" href="self.html" />
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1"
+    />
+    <meta
+      name="amp-script-src"
+      content="sha384-OAarGQ3oYEl0gSbkGWPpCP0gpYGs-fqgv3I6Lcdz3nxKukVzkvSMvtXpocH0URcJ"
+    />
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script
+      async
+      custom-element="amp-script"
+      src="https://cdn.ampproject.org/v0/amp-script-0.1.js"
+    ></script>
+    <style amp-custom>
+      .wrapper {
         width: 100%;
         min-width: 320px;
         max-width: 1600px;
         margin: 0 auto;
         background-color: #fff;
-        -webkit-transition: -webkit-transform .25s ease-in-out;
-        -moz-transition: -moz-transform .25s ease-in-out;
-        transition: transform .25s ease-in-out;
+        -webkit-transition: -webkit-transform 0.25s ease-in-out;
+        -moz-transition: -moz-transform 0.25s ease-in-out;
+        transition: transform 0.25s ease-in-out;
         position: relative;
-    }
-    .content {
+      }
+      .content {
         overflow: hidden;
         width: 100%;
         margin: 0;
         background-color: #fff;
-    }
-    .quiz .quiz-questions .carousel {
-    height: auto;
-    white-space: normal;
-    padding-left: 0;
-}
-.quiz .question {
-    padding: 0 0 40px;
-}
-    .btn-main {
-    font-family: NeueEinstellungBold;
-    background-color: #ef447f;
-    color: #fff;
-    text-align: center;
-    text-transform: uppercase;
-    display: inline-block;
-    white-space: nowrap;
-    line-height: 1;
-    border: 1px solid #ef447f;
-}
-    .quiz .quiz-questions .toolbar-control .forward {
-    width: auto;
-}
-    .quiz .answer-swatch {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-    .quiz .answer-container .ipsy-check {
-    font-size: 30px;
-    font-size: 1.875rem;
-    top: calc(50% - 26px);
-    left: calc(50% - 15px);
-}
-.quiz .answer-container .ipsy-check {
-    font-size: 18px;
-    font-size: 1.125rem;
-    top: 20px;
-    left: calc(50% - 11px);
-    color: #fff;
-}
-    .quiz .answer-swatch .choice {
-    display: inline-block;
-    overflow: hidden;
-    float: left;
-    margin: 0 9px 20px;
-}
-  </style>
-</head>
-<body>
-  <div class="wrapper splash-quiz">
-    <div class="content quiz" id="quiz" role="complementary">
-      <amp-script script="check-selection">
-        <div class="h1 padding-h-15 text-center splash-quiz-title">Your Personalized Glam Bag Starts Here</div>
-        <div class="container webflow-quiz quiz-questions">
-          <div class="carousel border shadow bg-white">
-            <div>
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .quiz .quiz-questions .carousel {
+        height: auto;
+        white-space: normal;
+        padding-left: 0;
+        text-align: center;
+      }
+      .quiz .question {
+        padding: 0 0 40px;
+      }
+      .btn-main {
+        font-family: NeueEinstellungBold;
+        background-color: #ef447f;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        display: inline-block;
+        white-space: nowrap;
+        line-height: 1;
+        border: 1px solid #ef447f;
+      }
+      .quiz .quiz-questions .toolbar-control .forward {
+        padding: 10px 30px;
+        cursor: pointer;
+      }
+      .quiz .answer-swatch {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        z-index: 1;
+      }
+      .quiz .answer-container .custom-check {
+        font-size: 30px;
+        font-size: 1.875rem;
+        top: calc(50% - 26px);
+        left: calc(50% - 15px);
+      }
+      .quiz .answer-container .custom-check {
+        font-size: 18px;
+        font-size: 1.125rem;
+        top: 20px;
+        left: calc(50% - 11px);
+        color: #fff;
+      }
+      .quiz .answer-swatch .choice {
+        display: inline-block;
+        overflow: hidden;
+        float: left;
+        margin: 0 9px 20px;
+      }
+      .toolbar-control {
+        display: flex;
+        justify-content: center;
+      }
+
+      .quiz .answer-swatch .swatch {
+        width: 60px;
+        height: 60px;
+        -webkit-border-radius: 60px;
+        -moz-border-radius: 60px;
+        border-radius: 60px;
+        border: 0;
+        margin: 5px auto;
+        padding: 0;
+      }
+      .answer-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+      }
+      .swatch {
+        width: 60px;
+        height: 60px;
+        border-radius: 60%;
+        margin-bottom: 10px;
+      }
+      .skin-3,
+      .swipe3.medium {
+        background-color: #deab7d;
+      }
+      .skin-2,
+      .swipe3.light {
+        background-color: #efd2cc;
+      }
+      .skin-1,
+      .swipe3.fair {
+        background-color: #f9e5d9;
+      }
+      .skin-4,
+      .swipe3.tan {
+        background-color: #b67245;
+      }
+      .skin-5,
+      .swipe3.dark {
+        background-color: #64321e;
+      }
+      .skin-6,
+      .swipe3.deep {
+        background-color: #452c28;
+      }
+      .choice {
+        position: relative;
+      }
+      .choice-radio {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2000;
+      }
+
+      .ux .h3,
+      .ux h3 {
+        font-size: 1.25rem;
+      }
+      .border {
+        border: 1px solid #ddd;
+      }
+      .shadow {
+        -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      }
+      .bg-white {
+        background-color: #fff;
+      }
+
+      .quiz .quiz-questions .carousel {
+        height: auto;
+        white-space: normal;
+        padding-left: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+      .wrapper.splash-quiz {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .ux .h1,
+      .ux .h1.xl,
+      .ux h1,
+      .ux h1.xl {
+        line-height: 1.5;
+      }
+      .splash-quiz .splash-quiz-title {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333;
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper splash-quiz">
+      <div class="content quiz" id="quiz" role="complementary">
+        <amp-script script="check-selection">
+          <div class="h1 padding-h-15 text-center splash-quiz-title">
+            Your Personalized Glam Bag Starts Here
+          </div>
+          <div class="container webflow-quiz quiz-questions">
+            <div class="carousel border shadow bg-white">
               <div>
                 <div>
-                  <div class="slide-elem active">
-                    <div class="question ux">
-                      <div class="margin-h-15 h3">What is your skin tone?</div>
-                    </div>
+                  <div>
+                    <div class="slide-elem active">
+                      <div class="question ux">
+                        <div class="margin-h-15 h3">
+                          What is your skin tone?
+                        </div>
+                      </div>
 
-                    <div class="answer-swatch single" id="quiz-answer-grid">
-                      <div class="choice " role="button" tabindex="0" aria-pressed="false">
-                        <div class="answer-container">
-                          <div class="ipsy-check icon-ipsy-check-large "></div>
-                          <div class="swatch skin-1"></div>
-                          <div class="label">Fair</div>
+                      <div class="answer-swatch single" id="quiz-answer-grid">
+                        <div
+                          class="choice "
+                          role="button"
+                          tabindex="0"
+                          aria-pressed="false"
+                        >
+                          <input
+                            type="radio"
+                            class="choice-radio"
+                            name="choice"
+                            value="Fair"
+                          />
+                          <div class="answer-container">
+                            <div
+                              class="custom-check icon-custom-check-large "
+                            ></div>
+                            <div class="swatch skin-1"></div>
+                            <div class="label">Fair</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="choice " role="button" tabindex="0" aria-pressed="false">
-                        <div class="answer-container">
-                          <div class="ipsy-check icon-ipsy-check-large "></div>
-                          <div class="swatch skin-2"></div>
-                          <div class="label">Light</div>
+                        <div
+                          class="choice "
+                          role="button"
+                          tabindex="0"
+                          aria-pressed="false"
+                        >
+                          <input
+                            type="radio"
+                            class="choice-radio"
+                            name="choice"
+                            value="Light"
+                          />
+                          <div class="answer-container">
+                            <div
+                              class="custom-check icon-custom-check-large "
+                            ></div>
+                            <div class="swatch skin-2"></div>
+                            <div class="label">Light</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="choice " role="button" tabindex="0" aria-pressed="false">
-                        <div class="answer-container">
-                          <div class="ipsy-check icon-ipsy-check-large "></div>
-                          <div class="swatch skin-3"></div>
-                          <div class="label">Medium</div>
+                        <div
+                          class="choice "
+                          role="button"
+                          tabindex="0"
+                          aria-pressed="false"
+                        >
+                          <input
+                            type="radio"
+                            class="choice-radio"
+                            name="choice"
+                            value="Medium"
+                          />
+                          <div class="answer-container">
+                            <div
+                              class="custom-check icon-custom-check-large "
+                            ></div>
+                            <div class="swatch skin-3"></div>
+                            <div class="label">Medium</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="choice " role="button" tabindex="0" aria-pressed="false">
-                        <div class="answer-container">
-                          <div class="ipsy-check icon-ipsy-check-large "></div>
-                          <div class="swatch skin-4"></div>
-                          <div class="label">Tan / Olive</div>
+                        <div
+                          class="choice "
+                          role="button"
+                          tabindex="0"
+                          aria-pressed="false"
+                        >
+                          <input
+                            type="radio"
+                            class="choice-radio"
+                            name="choice"
+                            value="Tan / Olive"
+                          />
+                          <div class="answer-container">
+                            <div
+                              class="custom-check icon-custom-check-large "
+                            ></div>
+                            <div class="swatch skin-4"></div>
+                            <div class="label">Tan / Olive</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="choice " role="button" tabindex="0" aria-pressed="false">
-                        <div class="answer-container">
-                          <div class="ipsy-check icon-ipsy-check-large "></div>
-                          <div class="swatch skin-5"></div>
-                          <div class="label">Dark</div>
+                        <div
+                          class="choice "
+                          role="button"
+                          tabindex="0"
+                          aria-pressed="false"
+                        >
+                          <input
+                            type="radio"
+                            class="choice-radio"
+                            name="choice"
+                            value="Dark"
+                          />
+                          <div class="answer-container">
+                            <div
+                              class="custom-check icon-custom-check-large "
+                            ></div>
+                            <div class="swatch skin-5"></div>
+                            <div class="label">Dark</div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="choice " role="button" tabindex="0" aria-pressed="false">
-                        <div class="answer-container">
-                          <div class="ipsy-check icon-ipsy-check-large "></div>
-                          <div class="swatch skin-6"></div>
-                          <div class="label">Deep</div>
+                        <div
+                          class="choice "
+                          role="button"
+                          tabindex="0"
+                          aria-pressed="false"
+                        >
+                          <input
+                            type="radio"
+                            class="choice-radio"
+                            name="choice"
+                            value="Deep"
+                          />
+                          <div class="answer-container">
+                            <div
+                              class="custom-check icon-custom-check-large "
+                            ></div>
+                            <div class="swatch skin-6"></div>
+                            <div class="label">Deep</div>
+                          </div>
                         </div>
                       </div>
                     </div>
-
+                    <div class="ux toolbar-control wide">
+                      <button
+                        id="quiz-next-btn"
+                        class="button btn-main btn-md forward"
+                      >
+                        Next
+                      </button>
+                    </div>
                   </div>
-                  <div class="ux toolbar-control wide"><button id="quiz-next-btn" class="button btn-main btn-md forward">Next</button></div>
                 </div>
-
               </div>
             </div>
           </div>
-        </div>
-      </amp-script>
+        </amp-script>
+      </div>
     </div>
-  </div>
-  <script id="check-selection" type="text/plain" target="amp-script">
-    const btn = document.querySelector('button');
-    const option = document.querySelector('.label');
-    btn.addEventListener('click', () => {
-      console.log('options', option);
-      sessionStorage.setItem('selected', option.textContent);
-    });
-</script>
-</body>
+    <script id="check-selection" type="text/plain" target="amp-script">
+      const btn = document.querySelector('.btn-main');
+      const radioButtons = document.querySelector('.answer-swatch');
+      let selectedValue = null;
+      radioButtons.addEventListener('click', (ev) => {
+        const value = ev.target.getAttribute('value');
+        selectedValue = value || selectedValue;
+      });
+
+      btn.addEventListener('click', () => {
+        console.log('selectedItem', selectedValue);
+        if (selectedValue) {
+          sessionStorage.setItem('selected', selectedValue);
+        }
+      });
+    </script>
+  </body>
 </html>
